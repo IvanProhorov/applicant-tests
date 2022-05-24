@@ -56,6 +56,7 @@ select count (*) from items
 ```sql
 -- result here
 ```
+select count (DISTINCT customer\_id) as CustomerCountDistinct  from Сustomer
 
 ### 2) Количество покупателей из Италии и Франции
 
@@ -67,7 +68,7 @@ select count (*) from items
 ```sql
 -- result here
 ```
-
+select t2.country\_name as Country_name,count (DISTINCT customer\_id) as CustomerCountDistinct  from Сustomer as t1 join Countries as t2 on t1.country\_code=t2.country\_code where t2.country\_name in ('France','Italy') group by t2.country\_name
 ### 3) ТОП 10 покупателей по расходам
 
 | **Customer_name** | **Revenue** |
@@ -83,7 +84,7 @@ select count (*) from items
 ```sql
 -- result here
 ```
-
+select t2.country\_name as Country_name,count (DISTINCT customer\_id) as CustomerCountDistinct  from Сustomer as t1 join Countries as t2 on t1.country\_code=t2.country\_code where t2.country\_name in ('France','Italy') group by t2.country\_name
 ### 4) Общая выручка USD по странам, если нет дохода, вернуть NULL
 
 | **Country_name** | **RevenuePerCountry** |
